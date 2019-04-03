@@ -1,0 +1,22 @@
+{
+  "name": "play-with-circuit-breaker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "vviital <vviital@tut.by>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "brakes": "^2.7.0",
+    "express": "^4.16.4",
+    "got": "^9.6.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "assets": "nodemon assets/index.js",
+    "facade": "nodemon facade/index.js",
+    "start": "nodemon runner/index.js",
+    "users": "nodemon users/index.js"
+  }
+}

@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  users:
+    build: .
+    ports:
+      - 8077:8080
+    volumes:
+      - ./users:/home/app/users
+    command: yarn run users
+    environment:
+      - SLOWDOWN=10
+      - RELEASE_INTERVAL=200
+  assets:
+    build: .
+    ports:
+      - 8078:8080
+    volumes:
+      - ./assets:/home/app/assets
+    command: yarn run assets
+    environment:
+      - SLOWDOWN=5
+      - RELEASE_INTERVAL=300
+  facade:
+    build: .
+    ports:
+      - 8079:8080
+    volumes:
+      - ./facade:/home/app/facade
+    command: yarn run facade
+    environment:
+      - TIMEOUT=1000
+      - USERS_ENDPOINT=http://users:8080    
+      - ASSETS_ENDPOINT=http://assets:8080    
+  runner:
+    build: .
+    volumes:
+      - ./runner:/home/app/runner
+    environment:
+      - ENDPOINT=http://facade:8080/resource  
+  dashboard:
+    image: mlabouardy/hystrix-dashboard:latest
+    ports:
+      - 8080:8080
+      - 8081:9002
