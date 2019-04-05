@@ -1,5 +1,5 @@
 # Motivation
-The main motivation of the repository is to try in almost near live environments pattern Circuit Breaker using library [`brakes`](https://www.npmjs.com/package/brakes).
+The main motivation of the repository is to try in almost near live environments pattern Circuit Breaker using library [`brakes`](https://www.npmjs.com/package/brakes). Essentially this repository is a part of the presentation about [Circuit Breaker](https://docs.google.com/presentation/d/1-kc-GfgMhhq9jHESp2lnQBun4nW-mr_FFLF3WUn2CVk/edit#slide=id.p)
 
 # Prerequisites
 To run the project you need to have docker and docker-compose installed on your local machine. To do it - please follow [the link](https://docs.docker.com/install/).
