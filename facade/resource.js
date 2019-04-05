@@ -21,8 +21,8 @@ class RestApi {
       fallback: () => emptyObject,
     });
 
-    const getAssetsSlave = this._brakes.slaveCircuit(this.getAssets.bind(this), () => usersFallback, { name: 'get-asset'})
-    const getUsersSlave = this._brakes.slaveCircuit(this.getUsers.bind(this), () => usersFallback, { name: 'get-asset' });
+    const getAssetsSlave = this._brakes.slaveCircuit(this.getAssets.bind(this), () => usersFallback, { name: 'get-users'})
+    const getUsersSlave = this._brakes.slaveCircuit(this.getUsers.bind(this), () => assetsFallback, { name: 'get-asset' });
 
     this.getAssets = getAssetsSlave.exec.bind(getAssetsSlave) 
     this.getUsers = getUsersSlave.exec.bind(getUsersSlave) 

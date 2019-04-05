@@ -12,5 +12,6 @@ COPY common.js common.js
 COPY runner runner
 COPY assets assets
 COPY users users
+COPY facade facade
 
 CMD [ "yarn", "start"]
