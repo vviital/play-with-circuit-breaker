@@ -32,4 +32,13 @@ app.get('/resource', async (req, res) => {
   res.json(object);
 });
 
+app.get('/circuit-breaker-stream', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream;charset=UTF-8');
+  res.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  const stream = api._brakes.getGlobalStats().getHystrixStream();
+
+  stream.pipe(res);
+});
+
 app.listen(+process.env.PORT || 8080);

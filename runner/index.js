@@ -1,28 +1,3 @@
-// const Brakes = require('brakes');
-// const got = require('got');
-// const Promise = require('bluebird');
-
-// Brakes.getGlobalStats().getRawStream().on('data', (data) => {
-//   console.log('data', JSON.stringify(JSON.parse(data), ' ', 1));
-// });
-
-// const main = async () => {
-//   const brake = new Brakes(async (...args) => {
-//     console.log('--- args ---', args);
-//     return got('google.com');
-//   }, {
-//     timeout: 1500,
-//   });
-
-//   while(true) {
-//     const { body: result } = await brake.exec(1, 2, 3);
-//     console.log('--- result ---', result.length);
-//     await Promise.delay(1000);
-//   }
-// };
-
-// main().catch(console.error);
-
 const got = require('got');
 const Promise = require('bluebird');
 const _  = require('lodash');
@@ -49,7 +24,7 @@ const main = async () => {
   while (true) {
     console.log('next iteration');
 
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 30; i += 1) {
       // do request and not wait
       doRequest();
     }

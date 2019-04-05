@@ -15,7 +15,8 @@ assert.notStrictEqual(object.interval, NaN, 'Interval value should be specified'
 assert.notStrictEqual(object.slowdown, NaN, 'Slowdown value should be specified')
 
 setInterval(() => {
-  object.iter = Math.max(object.iter - 1, 0);
+  const sub = Math.ceil(10 * Math.random());
+  object.iter = Math.max(object.iter - sub, 0);
   console.log('next value for iter', object.iter);
 }, object.interval)
 
